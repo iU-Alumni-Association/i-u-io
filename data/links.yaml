@@ -19,6 +19,12 @@
 - name: イベント
   url: /events
   category: Blog
+- name: タグ一覧
+  url: /tags
+  category: Blog
+- name: カテゴリ一覧
+  url: /categories
+  category: Blog
 - name: 情報経営イノベーション専門職大学
   url: https://www.i-u.ac.jp/
   category: Legal

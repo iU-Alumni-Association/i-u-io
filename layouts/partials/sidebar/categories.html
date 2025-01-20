@@ -1,0 +1,45 @@
+<!-- ページ一覧 -->
+<div>
+  <h2 class="mb-4 text-xl font-bold text-primary custom-break">ページ一覧</h2>
+  <ul class="space-y-2">
+    <li>
+      <a href="/circle" class="text-secondary hover:underline">サークル活動</a>
+    </li>
+    <li>
+      <a href="/news" class="text-secondary hover:underline">ニュース</a>
+    </li>
+    <li>
+      <a href="/column" class="text-secondary hover:underline">楽友会コラム</a>
+    </li>
+    <li>
+      <a href="/events" class="text-secondary hover:underline">イベント</a>
+    </li>
+    <li>
+      <a href="/useful" class="text-secondary hover:underline">サービス</a>
+    </li>
+    <li>
+      <a href="/download" class="text-secondary hover:underline">組織情報</a>
+    </li>
+  </ul>
+</div>
+
+<!-- カテゴリ一覧 -->
+<div>
+  <h2 class="mb-4 text-xl font-bold text-primary custom-break">カテゴリ一覧</h2>
+  <ul class="space-y-2">
+    {{ range $cat, $vals := .Site.Taxonomies.categories }}
+      <li>
+        {{ $categoryPage := $.Site.GetPage (printf "categories/%s" $cat) }}
+        {{ if $categoryPage }}
+          <a
+            href="{{ $categoryPage.Permalink }}"
+            class="text-secondary hover:underline">
+            {{ $cat }} ({{ len $vals }})
+          </a>
+        {{ else }}
+          <span>{{ $cat }} ({{ len $vals }})</span>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>

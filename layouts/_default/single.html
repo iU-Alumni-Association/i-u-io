@@ -1,0 +1,14 @@
+{{ define "body-class" }}lg:bg-gray-100{{ end }}
+{{ define "main" }}
+  {{ partial "breadcrumb.html" . }}
+  <div class="container flex flex-col gap-8 mx-auto lg:mt-8 lg:flex-row">
+    <!-- 記事本体 -->
+    {{ partial "prose.html" . }}
+    <!-- サイドバー -->
+    <aside class="w-full lg:w-1/3">
+      <div class="sticky top-16">
+        {{ partial "sidebar/single-categories.html" . }}
+      </div>
+    </aside>
+  </div>
+{{ end }}

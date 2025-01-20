@@ -1,0 +1,31 @@
+baseURL: "https://i-u.io"
+relativeURLs: false
+enableRobotsTXT: true
+languageCode: "ja"
+title: "iU 学友会 "
+
+params:
+  defaultImage: "/images/about-image.webp"
+  defaultDescription: "iU 学友会の公式ウェブサイトです。"
+  robots:
+    disallow:
+      - "/private"
+      - "/legal"
+    allow:
+      - "/public"
+
+minify:
+  disableCSS: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+pagination:
+  enabled: true
+  perPage: 20
+
+taxonomies:
+  tag: tags
+  category: categories

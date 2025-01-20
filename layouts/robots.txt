@@ -1,0 +1,15 @@
+{{- /* robots.txt template for Hugo */ -}}
+User-agent: *
+{{ if .Site.Params.robots.disallow }}
+Disallow: {{ range .Site.Params.robots.disallow }}
+Disallow: {{ . }}
+{{ end }}
+{{ else }}
+Disallow:
+{{ end }}
+{{ if .Site.Params.robots.allow }}
+Allow: {{ range .Site.Params.robots.allow }}
+Allow: {{ . }}
+{{ end }}
+{{ end }}
+Sitemap: {{ .Site.BaseURL }}sitemap.xml

@@ -1,0 +1,20 @@
+<!-- タグ一覧 -->
+<div>
+  <h2 class="mb-4 text-xl font-bold text-primary custom-break">タグ一覧</h2>
+  <ul class="space-y-2">
+    {{ range $tag, $vals := .Site.Taxonomies.tags }}
+      <li>
+        {{ $tagPage := $.Site.GetPage (printf "tags/%s" $tag) }}
+        {{ if $tagPage }}
+          <a
+            href="{{ $tagPage.Permalink }}"
+            class="text-secondary hover:underline">
+            {{ $tag }} ({{ len $vals }})
+          </a>
+        {{ else }}
+          <span>{{ $tag }} ({{ len $vals }})</span>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>

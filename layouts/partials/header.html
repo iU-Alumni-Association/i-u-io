@@ -1,0 +1,88 @@
+<header
+  id="header"
+  class="fixed top-0 left-0 z-50 w-full bg-white bg-opacity-50 backdrop-blur-md">
+  <div class="container flex items-center mx-auto navbar">
+    <!-- Logo -->
+    <div class="flex-1">
+      <a href="/" class="flex items-center space-x-2">
+        <img
+          src="/images/logo.png"
+          alt="Kubernetes Logo"
+          loading="lazy"
+          class="h-10" />
+      </a>
+    </div>
+    <!-- Hamburger Menu for Mobile -->
+    <div class="flex-none lg:hidden">
+      <label
+        for="mobile-drawer"
+        aria-label="open drawer"
+        class="btn btn-square btn-ghost">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+    </div>
+    <!-- Navigation Links for Desktop -->
+    <div class="hidden lg:flex flex-1 navbar-end">
+      <ul class="z-40 space-x-4 menu menu-horizontal">
+        {{ range where .Site.Data.links "category" "Contents" }}
+          <li>
+            <a class="hover:bg-accent" href="{{ .url }}" class="text-neutral">
+              {{ .name }}
+            </a>
+          </li>
+        {{ end }}
+        <li>
+          <details>
+            <summary class="hover:bg-accent">ブログ</summary>
+            <ul class="p-2 rounded-t-none bg-base-100">
+              {{ range where .Site.Data.links "category" "Blog" }}
+                <li>
+                  <a
+                    class="hover:bg-accent"
+                    href="{{ .url }}"
+                    class="text-neutral">
+                    {{ .name }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="z-30 drawer drawer-end">
+  <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <!-- Page content here -->
+    <label for="mobile-drawer" class="hidden">Open drawer</label>
+  </div>
+  <div class="drawer-side">
+    <label
+      for="mobile-drawer"
+      aria-label="close drawer"
+      class="drawer-overlay"></label>
+    <ul
+      class="z-40 w-64 min-h-full p-4 pt-20 menu bg-base-100 text-base-content">
+      {{ range where .Site.Data.links "category" "Contents" }}
+        <li><a class="hover:bg-accent" href="{{ .url }}">{{ .name }}</a></li>
+      {{ end }}
+      {{ range where .Site.Data.links "category" "Blog" }}
+        <li><a class="hover:bg-accent" href="{{ .url }}">{{ .name }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

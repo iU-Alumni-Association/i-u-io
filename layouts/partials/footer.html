@@ -1,0 +1,25 @@
+<footer
+  class="bg-gradient-to-t from-accent to-transparent p-10 footer text-primary">
+  <div>
+    <span class="footer-title">ブログ記事</span>
+    {{ range where .Site.Data.links "category" "Blog" }}
+      <a href="{{ .url }}" class="link link-hover">{{ .name }}</a>
+    {{ end }}
+  </div>
+  <div>
+    <span class="footer-title">コンテンツ</span>
+    {{ range where .Site.Data.links "category" "Contents" }}
+      <a href="{{ .url }}" class="link link-hover">{{ .name }}</a>
+    {{ end }}
+  </div>
+  <div>
+    <span class="footer-title">運営者・ポリシー</span>
+    {{ range where .Site.Data.links "category" "Legal" }}
+      <a href="{{ .url }}" class="link link-hover">{{ .name }}</a>
+    {{ end }}
+  </div>
+  <div class="pt-10 text-center border-t border-base-content">
+    <p>© 2023-2024 iU 学友会. All rights reserved.</p>
+    <p>メール: gakuyukai_jichi@i-u.ac.jp</p>
+  </div>
+</footer>

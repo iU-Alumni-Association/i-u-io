@@ -1,0 +1,45 @@
+{{ $category := index $.Params.categories 0 }}
+{{ $relatedByCategory := (where .Site.RegularPages "Params.categories" "intersect" (slice $category)) }}
+{{ if gt (len $relatedByCategory) 0 }}
+  <h2 class="mb-4 text-xl font-bold text-primary custom-break">
+    {{ $category }}
+    <wbr />
+    に関する他の記事
+  </h2>
+  <ul class="space-y-4">
+    {{ range first 8 $relatedByCategory }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="text-secondary hover:underline">
+          {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
+  {{/* 同じカテゴリの記事が見つからない */}}
+{{ end }}
+
+{{ $currentDir := .File.Dir }}
+{{ $relatedByDirectory := (where .Site.RegularPages "File.Dir" $currentDir) }}
+{{ if gt (len $relatedByDirectory) 0 }}
+  <h2 class="mt-8 mb-4 text-xl font-bold text-primary custom-break">
+    {{ with .CurrentSection }}
+      {{ .Title }}
+    {{ else }}
+      {{ $currentDir }}
+    {{ end }}
+    <wbr />
+    に関する他の記事
+  </h2>
+  <ul class="space-y-4">
+    {{ range first 8 $relatedByDirectory }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="text-secondary hover:underline">
+          {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
+  {{/* 同じディレクトリの記事が見つからない */}}
+{{ end }}

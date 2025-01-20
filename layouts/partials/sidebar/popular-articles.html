@@ -1,0 +1,57 @@
+{{ $isListPage := eq .Kind "section" }}
+{{ if $isListPage }}
+  <!-- list.html の処理（同じディレクトリ配下のみ）-->
+  {{ with .File }}
+    {{ $currentDir := .Dir }}
+    {{ $favPages := first 3 (where (where $.Site.RegularPages "File.Dir" $currentDir) "Params.favorite" true) }}
+    {{ $favCount := len $favPages }}
+    {{ if lt $favCount 3 }}
+      {{ $remain := sub 3 $favCount }}
+      {{ $otherPages := first $remain (where (where $.Site.RegularPages "File.Dir" $currentDir) "Params.favorite" "!=" true) }}
+      {{ $favPages = union $favPages $otherPages }}
+    {{ end }}
+    {{ if gt (len $favPages) 0 }}
+      <div>
+        <h2 class="mb-4 text-xl font-bold text-primary custom-break">
+          人気記事
+        </h2>
+        <ul class="space-y-2">
+          {{ range $favPages }}
+            <li>
+              <a
+                href="{{ .RelPermalink }}"
+                class="text-secondary hover:underline">
+                {{ .Title }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <!-- グローバルのお気に入り記事を取得 -->
+  {{ $favPages := first 3 (where $.Site.RegularPages "Params.favorite" true) }}
+  {{ $favCount := len $favPages }}
+  {{ if lt $favCount 3 }}
+    {{ $remain := sub 3 $favCount }}
+    {{ $otherPages := first $remain (where $.Site.RegularPages "Params.favorite" "!=" true) }}
+    {{ $favPages = union $favPages $otherPages }}
+  {{ end }}
+  {{ if gt (len $favPages) 0 }}
+    <div>
+      <h2 class="mb-4 text-xl font-bold text-primary custom-break">人気記事</h2>
+      <ul class="space-y-2">
+        {{ range $favPages }}
+          <li>
+            <a
+              href="{{ .RelPermalink }}"
+              class="text-secondary hover:underline">
+              {{ .Title }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.disableLanguages": ["markdown"],
+
+  "plugins": ["prettier-plugin-go-template"],
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "go-template",
+        "goTemplateBracketSpacing": true,
+        "htmlWhitespaceSensitivity": "ignore",
+        "bracketSameLine": true
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "never"
+      }
+    }
+  ]
+}

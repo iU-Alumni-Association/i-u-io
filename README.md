@@ -85,10 +85,12 @@ yarn build
 ## 使用ライブラリ
 
 ### Dependencies
+
 - **[@tailwindcss/typography](https://github.com/tailwindlabs/tailwindcss-typography)**: Tailwind CSS の Typography プラグイン
 - **[daisyui](https://daisyui.com/)**: Tailwind CSS 用のコンポーネントライブラリ
 
 ### DevDependencies
+
 - **[autoprefixer](https://github.com/postcss/autoprefixer)**: CSS にベンダープレフィックスを自動付与
 - **[concurrently](https://github.com/open-cli-tools/concurrently)**: 複数のコマンドを並行実行
 - **[esbuild](https://esbuild.github.io/)**: 超高速の JavaScript バンドラー
@@ -131,6 +133,7 @@ Tailwind CSS は、HTML を直接操作しながらデザインを構築する�
   レスポンシブデザインが容易に実現できる。`sm:`, `md:`, `lg:`, `xl:` などのプレフィックスを使うことで、特定の画面サイズに応じたスタイルを適用できる。
 
 ## サンプル実装
+
 ```html
 <!doctype html>
 <html lang="en">

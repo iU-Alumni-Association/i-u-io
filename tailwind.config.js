@@ -11,6 +11,11 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: "100ch",
+          },
+        },
+        blog: {
+          css: {
+            maxWidth: "100ch",
             h1: {
               fontSize: "2rem",
               fontWeight: "bold",
@@ -19,8 +24,8 @@ module.exports = {
               padding: theme("spacing.4"),
               marginBottom: theme("spacing.4"),
               marginTop: theme("spacing.6"),
-              backgroundColor: theme("colors.yellow.200"),
-              textAlign: "center",
+              backgroundColor: theme("colors.yellow.300"),
+              textAlign: "left",
             },
             h2: {
               fontSize: "1.5rem",
@@ -50,7 +55,7 @@ module.exports = {
         "secondary-content": "#fffffe", // optional
         accent: "#ffd803", // link
         "accent-focus": "#e8c702", // optional darker link
-        "accent-content": "#272343",
+        "accent-content": "#fffffe",
         neutral: "#272343", // headline
         "neutral-focus": "#1f1e2b", // headlineHover
         "neutral-content": "#fffffe",

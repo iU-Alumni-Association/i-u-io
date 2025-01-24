@@ -1,5 +1,5 @@
 ---
-title: "iU学友会 | ホーム"
+title: "iU 学友会 | ホーム"
 description: "iU学友会のホームページです。"
 ---
 

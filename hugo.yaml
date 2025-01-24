@@ -4,6 +4,8 @@ enableRobotsTXT: true
 languageCode: "ja"
 title: "iU 学友会 "
 
+favicon: "/images/favicon.ico"
+
 params:
   defaultImage: "/images/about-image.webp"
   defaultDescription: "iU 学友会の公式ウェブサイトです。"

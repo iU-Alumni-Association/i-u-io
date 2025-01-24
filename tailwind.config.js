@@ -11,6 +11,9 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: "100ch",
+            h1: {
+              fontSize: "1rem",
+            },
           },
         },
         blog: {

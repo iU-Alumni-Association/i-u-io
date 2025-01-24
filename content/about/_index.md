@@ -5,12 +5,12 @@ layout: "page"
 categories: ["組織情報"]
 ---
 
-# 学友会について
+## 学友会について
 
-## 活動中の委員会
+### 活動中の委員会
 
 {{< listcontent_category category="委員会紹介" >}}
 
-## 活動中のサークル
+### 活動中のサークル
 
 {{< listcontent_category category="サークル紹介" >}}

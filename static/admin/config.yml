@@ -1,10 +1,12 @@
+locale: "ja"
+local_backend: true
 backend:
-  name: github
+  name: git-gateway
   repo: iU-Alumni-Association/i-u-io
   branch: main
   site_domain: https://test.i-u.io
   base_url:  https://test.i-u.io
-  auth_endpoint: /functions/api/auth
+  auth_endpoint: /api/auth
 media_folder: static/images
 public_folder: /images
 collections:

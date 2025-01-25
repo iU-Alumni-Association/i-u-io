@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: username/repo
+  repo: iU-Alumni-Association/i-u-io
   branch: main
   site_domain: https://test.i-u.io
   base_url:  https://test.i-u.io

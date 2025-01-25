@@ -12,7 +12,7 @@ categories:
   - 学生団体
   - 部活
   - サークル
-favorite: false
+favorite: true
 ---
 # Englishサークルの紹介をここに記載
 

@@ -11,6 +11,16 @@ backend:
 media_folder: static/images
 public_folder: /images
 collections:
+  - name: 'index'
+    label: 'Indexページ'
+    files:
+      - label: 'トップページ'
+        name: 'index'
+        file: 'content/_index.md'
+        fields:
+          - { label: '説明', name: 'description', widget: 'text', required: false }
+          - { label: '本文', name: 'body', widget: 'markdown', required: true }
+
   - name: 'events'
     label: 'イベント'
     folder: 'content/events'

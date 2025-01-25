@@ -6,7 +6,7 @@ backend:
   base_url:  https://test.i-u.io
   auth_endpoint: /api/auth
 media_folder: static/images
-public_folder: /public
+public_folder: /images
 collections:
   - name: 'blog'
     label: 'Blog'

@@ -4,6 +4,7 @@ module.exports = {
     "./content/**/*.md",
     "./assets/js/**/*.js",
     "./themes/**/*.{html,js}",
+    "./admin/**/*.{html,js,jsx}",
   ],
   theme: {
     extend: {

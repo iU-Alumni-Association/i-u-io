@@ -7,6 +7,9 @@
 - name: ニュース
   url: /news
   category: Contents
+- name: お問い合わせ
+  url: /contact
+  category: Contents
 - name: サークル活動
   url: /circle
   category: Blog

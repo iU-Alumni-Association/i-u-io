@@ -5,7 +5,6 @@ module.exports = {
     "./assets/js/**/*.js",
     "./themes/**/*.{html,js}",
     "./admin/**/*.{html,js,jsx}",
-    "./contact/**/*.{html,js,jsx}",
   ],
   theme: {
     extend: {

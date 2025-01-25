@@ -10,7 +10,7 @@
   {{/* 見出し画像の設定 */}}
   {{ $headerImage := .Params.image }}
   {{ if not $headerImage }}
-    {{ $headerImage = printf "/images/blog-image/%s.webp" (path.Base .File.Dir | strings.TrimRight "/") }}
+    {{ $headerImage = printf "/images/%s.webp" (path.Base .File.Dir | strings.TrimRight "/") }}
   {{ end }}
   {{ if fileExists (printf "static%s" $headerImage) }}
     <img

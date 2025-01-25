@@ -16,8 +16,9 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
+    - { label: '画像', name: 'image', widget: 'image', required: false, media_library: { allow_multiple: false } }
     - { label: 'タイトル', name: 'title', widget: 'string', required: true }
-    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: false }
     - { label: '説明', name: 'description', widget: 'text', required: false }
     - { label: '本文', name: 'body', widget: 'markdown', required: true }
     - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
@@ -30,8 +31,9 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
+    - { label: '画像', name: 'image', widget: 'image', required: false, media_library: { allow_multiple: false } }
     - { label: 'タイトル', name: 'title', widget: 'string', required: true }
-    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: false }
     - { label: '説明', name: 'description', widget: 'text', required: false }
     - { label: '本文', name: 'body', widget: 'markdown', required: true }
     - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
@@ -44,8 +46,9 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
+    - { label: '画像', name: 'image', widget: 'image', required: false, media_library: { allow_multiple: false } }
     - { label: 'タイトル', name: 'title', widget: 'string', required: true }
-    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: false }
     - { label: '説明', name: 'description', widget: 'text', required: false }
     - { label: '本文', name: 'body', widget: 'markdown', required: true }
     - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
@@ -58,8 +61,9 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
+    - { label: '画像', name: 'image', widget: 'image', required: false, media_library: { allow_multiple: false } }
     - { label: 'タイトル', name: 'title', widget: 'string', required: true }
-    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: false }
     - { label: '説明', name: 'description', widget: 'text', required: false }
     - { label: '本文', name: 'body', widget: 'markdown', required: true }
     - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
@@ -73,7 +77,7 @@ collections:
     slug: '{{slug}}'
     fields:
     - { label: 'タイトル', name: 'title', widget: 'string', required: true }
-    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: false }
     - { label: '説明', name: 'description', widget: 'text', required: false }
     - { label: '本文', name: 'body', widget: 'markdown', required: true }
 

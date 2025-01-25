@@ -25,7 +25,7 @@ collections:
     label: 'イベント'
     folder: 'content/events'
     create: true
-    slug: '{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{title}}'
     preview_path: '{{slug}}'
     editor:
       preview: true
@@ -43,7 +43,7 @@ collections:
     label: 'サークル情報'
     folder: 'content/circle'
     create: true
-    slug: '{{slug}}'
+    slug: '{{title}}'
     preview_path: '{{slug}}'
     editor:
       preview: true
@@ -61,7 +61,7 @@ collections:
     label: 'ニュース'
     folder: 'content/news'
     create: true
-    slug: '{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{title}}'
     preview_path: '{{slug}}'
     editor:
       preview: true
@@ -79,7 +79,7 @@ collections:
     label: '自治委員会コラム'
     folder: 'content/column'
     create: true
-    slug: '{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{title}}'
     preview_path: '{{slug}}'
     editor:
       preview: true
@@ -96,8 +96,8 @@ collections:
   - name: 'legal'
     label: 'リーガル系'
     folder: 'content/legal'
-    create: false
-    slug: '{{slug}}'
+    create: true
+    slug: '{{title}}'
     preview_path: '{{slug}}'
     editor:
       preview: true

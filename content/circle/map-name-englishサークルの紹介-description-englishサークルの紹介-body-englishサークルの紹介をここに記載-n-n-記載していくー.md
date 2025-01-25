@@ -5,10 +5,11 @@ title: Englishサークルの紹介
 date: ""
 description: Englishサークルの紹介
 tags:
-  - サークル紹介
-categories:
   - 学生団体
   - サークル
+  - ""
+categories:
+  - サークル紹介
 favorite: false
 ---
 

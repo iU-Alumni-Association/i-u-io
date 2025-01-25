@@ -85,3 +85,15 @@ a {
     overflow-wrap: break-word;
   }
 }
+
+.drawer-icon-open {
+  display: block;
+}
+
+.drawer-toggle:checked ~ .drawer-content + .drawer-side .drawer-icon-open {
+  display: none;
+}
+
+.drawer-toggle:checked ~ .drawer-content + .drawer-side .drawer-icon-close {
+  display: block;
+}

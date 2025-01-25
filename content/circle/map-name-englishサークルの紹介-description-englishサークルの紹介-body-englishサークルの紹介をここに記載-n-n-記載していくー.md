@@ -1,5 +1,6 @@
 ---
 name: Englishサークルの紹介
+image: /images/souko.webp
 title: Englishサークルの紹介
 date: 2025-01-25T12:30:31.337Z
 description: Englishサークルの紹介

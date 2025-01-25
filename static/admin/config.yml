@@ -5,8 +5,8 @@ backend:
   site_domain: https://test.i-u.io
   base_url:  https://test.i-u.io
   auth_endpoint: /api/auth
-media_folder: static/img
-public_folder: /img
+media_folder: static/images
+public_folder: /public
 collections:
   - name: 'blog'
     label: 'Blog'

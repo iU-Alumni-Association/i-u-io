@@ -8,7 +8,8 @@
     "build": "yarn build:css && yarn build:js && hugo",
     "dev:server": "hugo server -D --watch --disableFastRender",
     "build:css": "tailwindcss -i ./assets/css/style.css -o static/css/style.css",
-    "dev": "concurrently \"yarn dev:server\" \"tailwindcss -i ./assets/css/style.css -o static/css/style.css --watch\" \"yarn dev:js\""
+    "dev": "concurrently \"yarn dev:server\" \"tailwindcss -i ./assets/css/style.css -o static/css/style.css --watch\" \"yarn dev:js\"",
+    "build:cf": "if [ \"$CF_PAGES_BRANCH\" == \"main\" ]; then git fetch --unshallow && npm install && hugo -b $BASE_URL --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic --enableGitInfo; else git fetch --unshallow && npm install && hugo -b $CF_PAGES_URL --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic --enableGitInfo; fi"
   },
   "license": "MIT",
   "dependencies": {

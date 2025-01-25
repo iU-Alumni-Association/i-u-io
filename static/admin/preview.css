@@ -1,7 +1,7 @@
-@import url('css/style.css');
+@import url("css/style.css");
 
 body {
-  @apply prose prose-blog prose-lg ;
+  @apply prose prose-blog prose-lg;
   font-family: "Noto Sans JP";
 }
 

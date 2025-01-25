@@ -78,11 +78,15 @@
     <ul
       class="z-40 min-h-full w-full p-4 pt-20 text-lg menu bg-white bg-opacity-50 backdrop-blur-md text-base-content">
       {{ range where .Site.Data.links "category" "Contents" }}
-        <li class="pb-1"><a class="hover:bg-accent" href="{{ .url }}">{{ .name }}</a></li>
+        <li class="pb-1">
+          <a class="hover:bg-accent" href="{{ .url }}">{{ .name }}</a>
+        </li>
       {{ end }}
       <div class="h-4"></div>
       {{ range where .Site.Data.links "category" "Blog" }}
-        <li class="pb-1"><a class="hover:bg-accent" href="{{ .url }}">{{ .name }}</a></li>
+        <li class="pb-1">
+          <a class="hover:bg-accent" href="{{ .url }}">{{ .name }}</a>
+        </li>
       {{ end }}
     </ul>
   </div>

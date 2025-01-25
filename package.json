@@ -6,6 +6,7 @@
     "build:js": "esbuild assets/js/*.js --bundle --outdir=static/js",
     "dev:js": "esbuild assets/js/*.js --bundle --outdir=static/js --watch",
     "build": "yarn build:css && yarn build:js && hugo",
+    "build:cf": "yarn install && yarn build && if [ \"$CF_PAGES_BRANCH\" == \"main\" ]; then git fetch --unshallow && hugo -b $BASE_URL --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic --enableGitInfo; else git fetch --unshallow && hugo -b $CF_PAGES_URL --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic --enableGitInfo; fi",
     "dev:server": "hugo server -D --watch --disableFastRender",
     "build:css": "tailwindcss -i ./assets/css/style.css -o static/css/style.css",
     "dev": "concurrently \"yarn dev:server\" \"tailwindcss -i ./assets/css/style.css -o static/css/style.css --watch\" \"yarn dev:js\""

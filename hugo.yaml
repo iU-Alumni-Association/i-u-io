@@ -29,3 +29,8 @@ pagination:
 taxonomies:
   tag: tags
   category: categories
+
+security:
+  funcs:
+    getenv:
+      - "^TRUSTSITE_ID$"

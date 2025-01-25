@@ -1,0 +1,234 @@
+
+{{ define "main" }}
+  {{ partial "breadcrumb.html" . }}
+  <div class=" py-3 flex flex-col gap-8 mx-auto lg:mt-8 lg:flex-row">
+    <!-- メインカラム：記事部分 -->
+    <div class="w-full">
+      <div class="prose prose-lg max-w-none ">
+        {{ .Content }}
+      </div>
+       <h1 class="text-4xl font-bold text-center">お問い合わせ</h1>
+  <div class="flex justify-center mx-5 mt-8">
+    <div class="relative flex overflow-hidden rounded-md border border-primary  bg-base-100">
+      <button
+        id="externalFormTab"
+        class="z-10 w-40 py-2 text-sm font-medium transition-all duration-300 relativ tab focus:outline-none"
+        onclick="toggleForm('external')">
+        お問い合わせフォーム
+      </button>
+      <button
+        id="internalFormTab"
+        class="relative z-10 w-40 py-2 text-sm font-medium transition-all duration-300 tab focus:outline-none"
+        onclick="toggleForm('internal')">
+        学生はこちらから
+      </button>
+      <div
+        id="tabIndicator"
+        class="absolute top-0 bottom-0 left-0 w-40 transition-transform duration-300 rounded-md bg-accent"></div>
+    </div>
+  </div>
+
+  <div class="max-w-2xl mx-auto mt-5">
+    <!-- 外向けフォーム -->
+    <div
+      id="externalForm"
+      class="p-8 mx-2 border border-primary rounded-md">
+      <h2 class="mb-6 text-2xl font-semibold text-primary">
+        お問い合わせ
+      </h2>
+      <form id="externalFormElement">
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            お名前
+          </label>
+          <input
+            type="text"
+            name="name"
+            class="w-full p-3 border rounded-md input input-bordered focus:outline-none focus:ring focus:ring-accent"
+            required />
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            メールアドレス
+          </label>
+          <input
+            type="email"
+            name="email"
+            class="w-full p-3 border rounded-md input input-bordered focus:outline-none focus:ring focus:ring-accent"
+            required />
+        </div>
+        <div class="mb-6">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            メッセージ
+          </label>
+          <textarea
+            name="message"
+            class="w-full p-3 border rounded-md textarea textarea-bordered focus:outline-none focus:ring focus:ring-accent"
+            rows="5"
+            required></textarea>
+        </div>
+        <div class="mb-4">
+          <div
+            class="cf-turnstile mx-auto sm:scale-100 sm:max-w-none scale-75 max-w-[85%]"
+            data-sitekey="{{ getenv "TRUSTSITE_ID" }}"></div>
+        </div>
+        <div class="mb-4">
+          <div class="text-red-500 error-message"></div>
+        </div>
+        <button type="submit" class="w-full px-4 py-2 btn rounded-md bg-accent">
+          送信
+        </button>
+      </form>
+    </div>
+
+    <!-- ウチ向けフォーム -->
+    <div
+      id="internalForm"
+      class="hidden p-8 mx-2 border border-primary rounded-md">
+      <h2 class="mb-6 text-2xl font-semibold text-primary">
+        学生お問い合わせ
+      </h2>
+      <form id="internalFormElement">
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            お名前
+          </label>
+          <input
+            type="text"
+            name="name"
+            class="w-full p-3 border rounded-md input input-bordered focus:outline-none focus:ring focus:ring-accent"
+            required />
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            学籍番号
+          </label>
+          <input
+            type="text"
+            name="intra_name"
+            class="w-full p-3 border rounded-md input input-bordered focus:outline-none focus:ring focus:ring-accent"
+            required />
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            メールアドレス
+          </label>
+          <input
+            type="email"
+            name="email"
+            class="w-full p-3 border rounded-md input input-bordered focus:outline-none focus:ring focus:ring-accent"
+            required />
+        </div>
+        <div class="mb-6">
+          <label class="block mb-2 text-sm font-medium text-primary">
+            メッセージ
+          </label>
+          <textarea
+            name="message"
+            class="w-full p-3 border rounded-md textarea textarea-bordered focus:outline-none focus:ring focus:ring-accent"
+            rows="5"
+            required></textarea>
+        </div>
+        <div class="mb-4">
+          <div
+            class="cf-turnstile mx-auto sm:scale-100 sm:max-w-none scale-75 max-w-[85%]"
+            data-sitekey="{{ getenv "TRUSTSITE_ID" }}"></div>
+        </div>
+        <div class="mb-4">
+          <div class="text-red-500 error-message"></div>
+        </div>
+        <button type="submit" class="w-full px-4 py-2 btn rounded-md bg-accent">
+          送信
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const errorMessages = {
+      name: 'お名前が無効です。50文字以内で入力してください。',
+      email: 'メールアドレスの形式が無効です。',
+      message: 'メッセージが無効です。500文字以内で入力してください',
+      default: 'フォームの送信中にエラーが発生しました。後でもう一度お試しください。',
+    };
+
+    function toggleForm(formType) {
+      const externalForm = document.getElementById("externalForm");
+      const internalForm = document.getElementById("internalForm");
+      const externalTab = document.getElementById("externalFormTab");
+      const internalTab = document.getElementById("internalFormTab");
+      const tabIndicator = document.getElementById("tabIndicator");
+
+      if (formType === "external") {
+        externalForm.classList.remove("hidden");
+        internalForm.classList.add("hidden");
+        externalTab.classList.add("active");
+        internalTab.classList.remove("active");
+        tabIndicator.style.transform = "translateX(0)";
+      } else {
+        internalForm.classList.remove("hidden");
+        externalForm.classList.add("hidden");
+        internalTab.classList.add("active");
+        externalTab.classList.remove("active");
+        tabIndicator.style.transform = "translateX(100%)";
+      }
+    }
+
+    // フォーム送信をハンドルする関数
+    async function handleFormSubmit(event, url, formType) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      const errorMessageDiv = form.querySelector('.error-message');
+
+      // エラーメッセージをクリア
+      errorMessageDiv.innerHTML = '';
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          // 送信完了ページにリダイレクト
+          window.location.href = "/submission-complete/";
+        } else {
+          const errorData = await response.json();
+          console.error('Error Response:', errorData);
+
+          // バックエンドのエラーに応じたメッセージを表示
+          let errorMessage = errorMessages.default;
+          if (errorData.error === 'Invalid name') {
+            errorMessage = errorMessages.name;
+          } else if (errorData.error === 'Invalid email address') {
+            errorMessage = errorMessages.email;
+          } else if (errorData.error === 'Invalid message content') {
+            errorMessage = errorMessages.message;
+          }
+
+          // エラーメッセージをページ内に表示
+          errorMessageDiv.innerHTML = errorMessage;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // ネットワークエラーや例外のエラーメッセージを表示
+        errorMessageDiv.innerHTML = errorMessages.default;
+      }
+    }
+
+    // 外向けフォームの送信イベントをリッスン
+    document.getElementById('externalFormElement').addEventListener('submit', function (event) {
+      handleFormSubmit(event, 'https://contact-form-backend.wakamiya626.workers.dev/external-form', 'external');
+    });
+
+    // ウチ向けフォームの送信イベントをリッスン
+    document.getElementById('internalFormElement').addEventListener('submit', function (event) {
+      handleFormSubmit(event, 'https://contact-form-backend.wakamiya626.workers.dev/internal-form', 'internal');
+    });
+  </script>
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer></script>
+{{ end }}

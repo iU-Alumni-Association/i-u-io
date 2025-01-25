@@ -5,72 +5,66 @@ backend:
   repo: iU-Alumni-Association/i-u-io
   branch: main
   site_domain: https://test.i-u.io
-  base_url:  https://test.i-u.io
+  base_url: https://test.i-u.io
   auth_endpoint: /api/auth
 media_folder: static/images
 public_folder: /images
 collections:
   - name: 'events'
-    label: 'Events'
+    label: 'イベント'
     folder: 'content/events'
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Location', name: 'location', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
-  - name: 'categories'
-    label: 'Categories'
-    folder: 'content/categories'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-
-  - name: 'tags'
-    label: 'Tags'
-    folder: 'content/tags'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+    - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '説明', name: 'description', widget: 'text', required: false }
+    - { label: '本文', name: 'body', widget: 'markdown', required: true }
+    - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
+    - { label: 'カテゴリー', name: 'categories', widget: 'list', default: [], required: false }
+    - { label: 'お気に入り', name: 'favorite', widget: 'boolean', default: false, required: false }
 
   - name: 'circle'
-    label: 'Circle'
+    label: 'サークル情報'
     folder: 'content/circle'
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+    - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '説明', name: 'description', widget: 'text', required: false }
+    - { label: '本文', name: 'body', widget: 'markdown', required: true }
+    - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
+    - { label: 'カテゴリー', name: 'categories', widget: 'list', default: [], required: false }
+    - { label: 'お気に入り', name: 'favorite', widget: 'boolean', default: false, required: false }
 
   - name: 'news'
-    label: 'News'
+    label: 'ニュース'
     folder: 'content/news'
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Summary', name: 'summary', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+    - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '説明', name: 'description', widget: 'text', required: false }
+    - { label: '本文', name: 'body', widget: 'markdown', required: true }
+    - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
+    - { label: 'カテゴリー', name: 'categories', widget: 'list', default: [], required: false }
+    - { label: 'お気に入り', name: 'favorite', widget: 'boolean', default: false, required: false }
 
   - name: 'column'
-    label: 'Column'
+    label: '自治委員会コラム'
     folder: 'content/column'
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+    - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '説明', name: 'description', widget: 'text', required: false }
+    - { label: '本文', name: 'body', widget: 'markdown', required: true }
+    - { label: 'タグ', name: 'tags', widget: 'list', default: [], required: false }
+    - { label: 'カテゴリー', name: 'categories', widget: 'list', default: [], required: false }
+    - { label: 'お気に入り', name: 'favorite', widget: 'boolean', default: false, required: false }
 
   - name: 'legal'
     label: 'Legal'
@@ -78,13 +72,16 @@ collections:
     create: false
     slug: '{{slug}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+    - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+    - { label: '公開日時', name: 'date', widget: 'datetime', required: true }
+    - { label: '説明', name: 'description', widget: 'text', required: false }
+    - { label: '本文', name: 'body', widget: 'markdown', required: true }
 
   - name: 'about'
     label: 'About'
     folder: 'content/about'
     create: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+    - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+    - { label: '説明', name: 'description', widget: 'text', required: false }
+    - { label: '本文', name: 'body', widget: 'markdown', required: true }

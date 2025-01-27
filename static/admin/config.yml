@@ -69,7 +69,7 @@ collections:
         }
 
   - name: "circle"
-    label: "サークル情報"
+    label: "サークル活動"
     folder: "content/circle"
     create: true
     slug: "{{title}}"
@@ -195,7 +195,7 @@ collections:
         }
 
   - name: "legal"
-    label: "リーガル系"
+    label: "ポリシー情報"
     folder: "content/legal"
     create: true
     slug: "{{title}}"

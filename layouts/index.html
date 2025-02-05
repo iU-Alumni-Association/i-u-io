@@ -19,11 +19,21 @@
         id="articles"
         class="container flex flex-col gap-8 mx-auto lg:mt-8 lg:flex-row">
         <section class="w-full space-y-12 lg:w-2/3">
+
+          <!-- メインカラム：記事部分 -->
+          <div class="prose prose-lg max-w-none py-16">
+            {{ .Content }}
+            <a href="https://i-u.io/services">
+              <button class="btn bg-accent hover:bg-accent-focus text-primary ">
+              各種申請を行う
+              </button>
+              </a>
+          </div>
           <!-- お知らせセクション -->
           <div>
-            <h1 class="text-3xl font-bold">最新ニュース</h1>
+            <h1 class="text-3xl font-bold">ニュース</h1>
 
-            {{ $infoPages := where .Site.RegularPages "File.Dir" "news/" }}
+            {{ $infoPages := where .Site.RegularPages "File.Dir" "news/"}}
             {{ if gt (len $infoPages) 0 }}
               <ul class="mt-4 space-y-8">
                 {{ range $infoPages }}
@@ -67,9 +77,9 @@
 
           <!-- 新着記事セクション -->
           <div>
-            <h1 class="text-3xl font-bold">新着情報</h1>
+            <h1 class="text-3xl font-bold">新たな記事</h1>
 
-            {{ $recentPages := first 5 .Site.RegularPages }}
+            {{ $recentPages := first 2 .Site.RegularPages }}
             {{ if gt (len $recentPages) 0 }}
               <ul class="mt-4 space-y-8">
                 {{ range $recentPages }}
@@ -110,9 +120,7 @@
               <p class="mt-4">現在新着情報はありません。</p>
             {{ end }}
           </div>
-          <div class="prose prose-lg max-w-none ">
-            {{ .Content }}
-          </div>
+          
         </section>
 
         <!-- サイドバー（右カラム） -->

@@ -14,6 +14,6 @@ favorite: false
 ---
 # Englishサークルの紹介をここに記載
 
-### 記載していくー
+### 詳細
 
 test
